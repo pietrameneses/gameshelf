@@ -23,7 +23,7 @@ def _save(data): # precisa do (data) p/ salvar
     with open(DATA_PATH, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-# função mais complexa pra add jogos
+# função pra add jogos
 def add_game(game_id, nome, status, plataforma):   # define os parâmetros a serem utilizados
     data = _load()   # data = dicionário c informações
     for jogo in data["jogos"]:               # procura se tem um jogo já com o mesmo id
@@ -44,7 +44,7 @@ def add_game(game_id, nome, status, plataforma):   # define os parâmetros a ser
     _save(data)
     return {"ok": True}                     # verifica se foi
 
-# outra função um pouco mais complexa rs pra pegar a lista de jogos filtrada
+# função pra pegar a lista de jogos filtrada
 def get_games(status=None, plataforma=None):  # add parametros
     data = _load()   # carrega os dados
     jogos = data["jogos"]    # pega a lista dos jogos
@@ -54,7 +54,7 @@ def get_games(status=None, plataforma=None):  # add parametros
         jogos = [j for j in jogos if j["plataforma"] == plataforma] # filtra se a plataforma foi informada ou nn
     return jogos     # retorna a lista de jogos filtrada
 
-# agora outra função pra atualizar os jogos já existentes
+# função pra atualizar os jogos já existentes
 def update_game(game_id, nota=None, review=None, status=None, horas=None, tags=None):
     if nota is not None and (nota < 1 or nota > 5):      # verifica se foi informada
         return {"erro": "Nota deve ser entre 1 e 5"}     # se não foi, mostra erro
@@ -77,10 +77,12 @@ def update_game(game_id, nota=None, review=None, status=None, horas=None, tags=N
 
     return {"erro": "Jogo não encontrado"}  # se o jgo n for encontrado aparece esse erro
 
-# agora uma função p remover jogos
+# função p remover jogos
 def remove_game(game_id):
     data = _load()
     antes = len(data["jogos"])  # guarda o tamanho da lista antes de remover
     data["jogos"] = [j for j in data["jogos"] if j["id"] != game_id]   # recria a lista sem um item
-    if len(data["jogos"]) == antes:
+    if len(data["jogos"]) == antes:              # se o tamanho continua o msm, ent nn mudou e da erro
         return {"erro": "Jogo não encontrado"}
+    _save(data)
+    return {"ok": True}

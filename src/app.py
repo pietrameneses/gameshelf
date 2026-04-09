@@ -1,0 +1,28 @@
+# importa o flask
+from flask import Flask, request, jsonify, render_template     
+# importa o arq. shelf.py
+from shelf import add_game, get_games, update_game, remove_game
+
+# cria o app
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
+
+# rota p user acessar a pag inicial e servir o html
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+# rota p pedir a lista de jogos p server + fitros opcionais
+@app.route("/jogos", methods=["GET"])
+def listar_jogos():
+    status = request.args.get("status")
+    plataforma = request.args.get("plataforma")
+    jogos = get_games(status=status, plataforma=plataforma)
+    return jsonify(jogos)
+
+# rota p add jogo
+@app.route("/jogos", methods=["POST"])
+def add_jogo():
+    dados = request.get_json()
+    resultado = add_game(dados["game_id"], dados["nome"], dados["status"], dados["plataforma"])
+    return jsonify(resultado)
+

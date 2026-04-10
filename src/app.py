@@ -26,3 +26,30 @@ def add_jogo():
     resultado = add_game(dados["game_id"], dados["nome"], dados["status"], dados["plataforma"])
     return jsonify(resultado)
 
+# rota p atualizar jogos
+@app.route("/jogos/<int:game_id>", methods=["POST"])
+def atualizar_jogo(game_id):
+    dados = request.get_json()
+    resultado = update_game(
+    game_id,
+    nota=dados.get("nota"),
+    review=dados.get("review"),
+    status=dados.get("status"),
+    horas=dados.get("horas"),
+    tags=dados.get("tags")
+    )
+    return jsonify(resultado)
+
+# rota p remover jogos
+@app.route("/jogos/<int:game_id>", methods=["DELETE"])
+def remover_jogos(game_id):
+    resultado = remove_game(game_id)
+    return jsonify(resultado)
+
+# rota recomendações
+@app.route("/recomendacoes/<int:game_id>", methods=["GET"])
+def recomendacoes(game_id):
+    return jsonify({"game_id": game_id})
+
+if __name__ == "__main__":
+    app.run(debug=True)

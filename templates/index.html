@@ -1,0 +1,77 @@
+<!DOCTYPE html>          
+<html lang="pt-br">      
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameShelf</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">          <!-- boostrap-->
+    <link rel="stylesheet" href="/static/style.css">                                                                <!-- arq. do css -->
+</head>        
+<body>                   
+    <!-- header -->
+<nav class="navbar navbar-dark bg-dark px-4">                   <!--deixar fundo escuro-->
+    <span class="navbar-brand fs-4">🎮 GameShelf</span>         <!-- estiliza logo -->
+</nav>
+    <!-- busca -->
+<div class="container mt-4">
+    <div class="input-group mb-3">
+        <input type="text" id="inputBusca" class="form-control" placeholder="Buscar jogo...">
+        <button class="btn btn-primary" onclick="buscarJogo()">Buscar</button>                   <!-- cria barra de busca c input e botão -->
+    </div> 
+    <!-- resultados da busca -->
+    <div id="resultadosBusca" class="row mt-3"></div>
+<!-- abas -->
+    <ul class="nav nav-tabs mt-4" id="abas">
+        <li class="nav-item">
+            <a class="nav-link active" onclick="filtrarShelf('quero_jogar')">Quero Jogar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="filtrarShelf('jogando')">Jogando</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="filtrarShelf('zerado')">Zerado</a>          <!--cria abas de navegação com links que enviam para cada seção-->
+        </li>
+    </ul>
+    <!-- lista da shelf -->
+    <div id="shelf" class="row mt-3"></div>
+</div>
+
+
+<!-- pág de cada jogo -->
+<div class="modal fade" id="modalJogo" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalNome"></h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img id="modalImagem" src="" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-8">
+                        <p id="modalPlataformas"></p>
+                        <select id="modalStatus" class="form-select mb-2">
+                            <option value="quero_jogar">Quero Jogar</option>
+                            <option value="jogando">Jogando</option>
+                            <option value="zerado">Zerado</option>
+                        </select>
+                        <input type="number" id="modalNota" class="form-control mb-2" placeholder="Nota (1-5)" min="1" max="5">
+                        <input type="number" id="modalHoras" class="form-control mb-2" placeholder="Horas jogadas">
+                        <textarea id="modalReview" class="form-control mb-2" placeholder="Sua review..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" onclick="salvarJogo()">Salvar</button>
+                <button class="btn btn-danger" onclick="removerJogo()">Remover</button>
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>   
+    <script src="/static/script.js"></script>                                                              <!-- js -->
+</body>
+</html>

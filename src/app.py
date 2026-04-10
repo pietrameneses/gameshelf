@@ -1,3 +1,7 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 # importa o flask
 from flask import Flask, request, jsonify, render_template     
 # importa o arq. shelf.py
@@ -50,6 +54,10 @@ def remover_jogos(game_id):
 @app.route("/recomendacoes/<int:game_id>", methods=["GET"])
 def recomendacoes(game_id):
     return jsonify({"game_id": game_id})
+
+@app.route("/config")
+def config():
+    return jsonify({"rawg_key": os.getenv("RAWG_KEY")})
 
 if __name__ == "__main__":
     app.run(debug=True)

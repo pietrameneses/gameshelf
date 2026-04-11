@@ -1,11 +1,12 @@
 import os
 from dotenv import load_dotenv
-load_dotenv()
 
 # importa o flask
 from flask import Flask, request, jsonify, render_template     
 # importa o arq. shelf.py
 from shelf import add_game, get_games, update_game, remove_game
+
+load_dotenv()
 
 # cria o app
 app = Flask(__name__, template_folder="../templates", static_folder="../static")

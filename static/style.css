@@ -1,64 +1,111 @@
-/* cor geral */
-body {
-    background-color: #1a1a1a;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', sans-serif;
+/* ===== FONTE ===== */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Inter:wght@300;400;500&display=swap');
+
+/* ===== GERAL ===== */
+* {
+    box-sizing: border-box;
 }
 
-/* navbar */
+body {
+    background-color: #0d0d0f;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* ===== NAVBAR ===== */
 .navbar {
-    background-color: #111111 !important;
-    border-bottom: 1px solid #2a2a2a;
+    background-color: #0d0d0f !important;
+    border-bottom: 1px solid #1e1e2e;
+    padding: 16px 32px !important;
 }
 
 .navbar-brand {
     color: #ffffff !important;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.8rem !important;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #fff 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* busca */
+/* ===== CONTAINER ===== */
+.container {
+    padding-top: 32px !important;
+}
+
+/* ===== BUSCA ===== */
+.input-group {
+    background-color: #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #2a2a4a;
+    transition: border-color 0.2s;
+}
+
+.input-group:focus-within {
+    border-color: #7c3aed;
+}
+
 .form-control {
-    background-color: #2a2a2a;
-    border: 1px solid #3a3a3a;
-    color: #ffffff;
+    background-color: #1a1a2e !important;
+    border: none !important;
+    color: #ffffff !important;
+    padding: 14px 20px !important;
+    font-size: 0.95rem;
 }
 
 .form-control:focus {
-    background-color: #2a2a2a;
-    border-color: #555555;
-    color: #ffffff;
-    box-shadow: none;
+    box-shadow: none !important;
 }
 
 .form-control::placeholder {
-    color: #777777;
+    color: #555577;
 }
 
 .btn-primary {
-    background-color: #3a3a3a;
-    border-color: #4a4a4a;
-    color: #ffffff;
+    background: linear-gradient(135deg, #7c3aed, #a855f7) !important;
+    border: none !important;
+    padding: 14px 28px !important;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s;
 }
 
 .btn-primary:hover {
-    background-color: #4a4a4a;
-    border-color: #555555;
+    opacity: 0.85;
 }
 
-/* cards */
+.btn-secondary {
+    background-color: #1e1e2e !important;
+    border: 1px solid #2a2a4a !important;
+    color: #aaaacc !important;
+    padding: 14px 20px !important;
+}
+
+.btn-secondary:hover {
+    background-color: #2a2a4a !important;
+    color: #ffffff !important;
+}
+
+/* ===== CARDS DOS JOGOS ===== */
 .game-card {
-    background-color: #242424;
-    border-radius: 10px;
+    background-color: #13131f;
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
-    border: 1px solid #2a2a2a;
+    border: 1px solid #1e1e2e;
+    height: 100%;
 }
 
 .game-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(124, 58, 237, 0.25);
+    border-color: #7c3aed;
 }
 
 .game-card img {
@@ -68,119 +115,168 @@ body {
 }
 
 .game-card .card-body {
-    padding: 10px 12px;
+    padding: 12px 14px;
 }
 
 .game-card .card-title {
     font-size: 0.9rem;
     font-weight: 600;
     color: #ffffff;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-family: 'Inter', sans-serif;
 }
 
 .game-card .card-text {
     font-size: 0.75rem;
-    color: #888888;
+    color: #6666aa;
 }
 
-/* abas */
+/* ===== ABAS ===== */
 .nav-tabs {
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid #1e1e2e;
+    gap: 4px;
 }
 
 .nav-tabs .nav-link {
-    color: #888888;
-    border: none;
-    padding: 10px 20px;
+    color: #6666aa;
+    border: none !important;
+    padding: 10px 18px;
+    border-radius: 8px 8px 0 0 !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s;
 }
 
 .nav-tabs .nav-link:hover {
     color: #ffffff;
-    border: none;
+    background-color: #1a1a2e;
 }
 
 .nav-tabs .nav-link.active {
-    background-color: transparent;
-    color: #ffffff;
-    border: none;
-    border-bottom: 2px solid #ffffff;
+    background-color: transparent !important;
+    color: #a78bfa !important;
+    border-bottom: 2px solid #7c3aed !important;
 }
 
-.contador {
-    font-size: 0.85rem;
-    color: #888888;
-    margin-bottom: 16px;
+/* ===== BOTÃO NOVA LISTA ===== */
+.btn-outline-secondary {
+    border-color: #2a2a4a !important;
+    color: #6666aa !important;
+    border-radius: 8px !important;
+    font-size: 0.85rem !important;
+    padding: 6px 14px !important;
+    transition: all 0.2s;
 }
 
+.btn-outline-secondary:hover {
+    background-color: #1e1e2e !important;
+    color: #a78bfa !important;
+    border-color: #7c3aed !important;
+}
+
+/* ===== MODAL ===== */
 .modal-content {
-    background-color: #1e1e1e !important;
-    border: 1px solid #2a2a2a;
+    background-color: #13131f !important;
+    border: 1px solid #1e1e2e !important;
+    border-radius: 16px !important;
 }
 
 .modal-header {
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid #1e1e2e !important;
+    padding: 20px 24px !important;
+}
+
+.modal-title {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
 }
 
 .modal-footer {
-    border-top: 1px solid #2a2a2a;
+    border-top: 1px solid #1e1e2e !important;
 }
 
 .form-select {
-    background-color: #2a2a2a;
-    border: 1px solid #3a3a3a;
-    color: #ffffff;
+    background-color: #1a1a2e !important;
+    border: 1px solid #2a2a4a !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
 }
 
 .form-select:focus {
-    background-color: #2a2a2a;
-    border-color: #555555;
-    box-shadow: none;
-    color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3) !important;
+    border-color: #7c3aed !important;
 }
 
 textarea.form-control {
     resize: none;
     height: 80px;
+    border-radius: 8px !important;
+    background-color: #1a1a2e !important;
+    border: 1px solid #2a2a4a !important;
 }
 
+textarea.form-control:focus {
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3) !important;
+    border-color: #7c3aed !important;
+}
+
+/* ===== BOTÕES DO MODAL ===== */
 .btn-success {
-    background-color: #2d6a4f;
-    border-color: #2d6a4f;
+    background: linear-gradient(135deg, #059669, #10b981) !important;
+    border: none !important;
+    border-radius: 8px !important;
 }
 
 .btn-success:hover {
-    background-color: #40916c;
-    border-color: #40916c;
+    opacity: 0.85;
 }
 
 .btn-danger {
-    background-color: #6b2737;
-    border-color: #6b2737;
+    background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+    border: none !important;
+    border-radius: 8px !important;
 }
 
 .btn-danger:hover {
-    background-color: #9b2335;
-    border-color: #9b2335;
+    opacity: 0.85;
 }
 
-.btn-secondary {
-    background-color: #3a3a3a;
-    border-color: #4a4a4a;
-}
-
-.btn-secondary:hover {
-    background-color: #4a4a4a;
-}
-
-/* estrelas avaliação */
+/* ===== NOTA BADGE ===== */
 .nota-badge {
-    background-color: #2a2a2a;
-    color: #f0c040;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    color: #ffffff;
     font-size: 0.75rem;
-    padding: 2px 8px;
+    padding: 2px 10px;
     border-radius: 20px;
     display: inline-block;
+    font-weight: 500;
+}
+
+/* ===== MENSAGEM VAZIA ===== */
+.text-muted {
+    color: #444466 !important;
+    font-size: 0.9rem;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d0d0f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2a4a;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
 }

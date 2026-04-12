@@ -2,7 +2,7 @@
 
 > Organize, avalie e descubra jogos em um só lugar.
 
-![CI](https://github.com/SEU_USUARIO/gameshelf/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/pietrameneses/gameshelf/actions/workflows/ci.yml/badge.svg)
 
 ---
 
@@ -64,7 +64,7 @@ Jogadores casuais e entusiastas que querem manter um registro pessoal da sua jor
 
 ---
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 gameshelf/
@@ -90,7 +90,7 @@ gameshelf/
 
 ---
 
-## ⚙️ Instalação
+## Instalação
 
 **Pré-requisitos:** Python 3.10+, Git
 
@@ -105,7 +105,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🔑 Configuração da API
+## Configuração da API
 
 Crie um arquivo `.env` na raiz do projeto:
 
@@ -117,7 +117,7 @@ Obtenha sua chave gratuita em [rawg.io/apidocs](https://rawg.io/apidocs).
 
 ---
 
-## ▶️ Como Executar
+## Como Executar
 
 ```bash
 python3 src/app.py
@@ -127,7 +127,7 @@ Acesse no navegador: [http://localhost:5000](http://localhost:5000)
 
 ---
 
-## 🧪 Como Rodar os Testes
+## Como Rodar os Testes
 
 ```bash
 python3 -m pytest tests/ -v
@@ -135,7 +135,7 @@ python3 -m pytest tests/ -v
 
 ---
 
-## 🔍 Como Rodar o Linting
+## Como Rodar o Linting
 
 ```bash
 ruff check src/
@@ -143,20 +143,20 @@ ruff check src/
 
 ---
 
-## 📦 Versão
+## Versão
 
 `1.0.0`
 
 ---
 
-## 📄 Licença
+## Licença
 
 MIT
 
-## 👤 Autor
+## Autor
 
 Pietra Meneses
 
-## 🔗 Repositório
+## Repositório
 
 https://github.com/pietrameneses/gameshelf

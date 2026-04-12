@@ -9,7 +9,8 @@ fetch("/config")
     .then(res => res.json())
     .then(data => {
         RAWG_KEY = data.rawg_key
-        carregarShelf() 
+        carregarAbas()
+        carregarShelf()
     })
 
 // busca
@@ -137,13 +138,10 @@ function removerJogo() {
 
 let statusAtual = "quero_jogar"
  
-function filtrarShelf(status) {
+function filtrarShelf(status, el) {
     statusAtual = status
- 
-    // atualiza aba ativa
     document.querySelectorAll(".nav-link").forEach(a => a.classList.remove("active"))
-    event.target.classList.add("active")
- 
+    el.classList.add("active")
     carregarShelf()
 }
  
@@ -180,4 +178,69 @@ function mostrarShelf(jogos) {
         `
     })
 }
- 
+
+// carrega abas dinamicamente
+function carregarAbas() {
+    fetch("/listas")
+        .then(res => res.json())
+        .then(listas => {
+            const ul = document.getElementById("abas")
+            ul.innerHTML = ""
+            listas.forEach((lista, i) => {
+                const nomes = {
+                    "quero_jogar": "Quero Jogar",
+                    "jogando": "Jogando",
+                    "zerado": "Zerado"
+                }
+                const nome = nomes[lista] || lista
+                const fixas = ["quero_jogar", "jogando", "zerado"]
+                const ehFixa = fixas.includes(lista)
+
+                ul.innerHTML += `
+                    <li class="nav-item d-flex align-items-center">
+                        <a class="nav-link ${i === 0 ? 'active' : ''}" 
+                            onclick="filtrarShelf('${lista}', this)">${nome}</a>
+                        ${!ehFixa ? `<span class="text-secondary ms-1" style="cursor:pointer;font-size:0.8rem" onclick="deletarLista('${lista}')">✕</span>` : ''}
+                    </li>`
+            })
+        })
+}
+
+function abrirNovaLista() {
+    document.getElementById("novaListaForm").style.display = "flex"
+}
+
+function fecharNovaLista() {
+    document.getElementById("novaListaForm").style.display = "none"
+    document.getElementById("inputNovaLista").value = ""
+}
+
+function criarLista() {
+    const nome = document.getElementById("inputNovaLista").value.trim()
+    if (!nome) return
+    fetch("/listas", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome })
+    })
+    .then(res => res.json())
+    .then(resultado => {
+        if (resultado.ok) {
+            fecharNovaLista()
+            carregarAbas()
+        } else {
+            alert(resultado.erro)
+        }
+    })
+}
+
+function deletarLista(nome) {
+    if (!confirm(`Apagar a lista "${nome}"?`)) return
+    fetch(`/listas/${nome}`, { method: "DELETE" })
+        .then(res => res.json())
+        .then(() => {
+            statusAtual = "quero_jogar"
+            carregarAbas()
+            carregarShelf()
+        })
+}

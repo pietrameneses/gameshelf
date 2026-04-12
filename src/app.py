@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 # importa o flask
 from flask import Flask, request, jsonify, render_template     
 # importa o arq. shelf.py
-from shelf import add_game, get_games, update_game, remove_game
+from shelf import add_game, get_games, update_game, remove_game, add_list, get_lists, remove_list
 
 load_dotenv()
 
@@ -59,6 +59,24 @@ def recomendacoes(game_id):
 @app.route("/config")
 def config():
     return jsonify({"rawg_key": os.getenv("RAWG_KEY")})
+
+# rota p ver listas
+@app.route("/listas", methods=["GET"])
+def listar_listas():
+    return jsonify(get_lists())
+
+# rota p criar
+@app.route("/listas", methods=["POST"])
+def criar_lista():
+    dados = request.get_json()
+    resultado = add_list(dados["nome"])
+    return jsonify(resultado)
+
+# rota p apagar
+@app.route("/listas/<nome>", methods=["DELETE"])
+def deletar_lista(nome):
+    resultado = remove_list(nome)
+    return jsonify(resultado)
 
 if __name__ == "__main__":
     app.run(debug=True)

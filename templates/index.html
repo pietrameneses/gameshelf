@@ -21,22 +21,22 @@
     </div> 
     <!-- resultados da busca -->
     <div id="resultadosBusca" class="row mt-3"></div>
-<!-- abas -->
-    <ul class="nav nav-tabs mt-4" id="abas">
-        <li class="nav-item">
-            <a class="nav-link active" onclick="filtrarShelf('quero_jogar')">Quero Jogar</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" onclick="filtrarShelf('jogando')">Jogando</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" onclick="filtrarShelf('zerado')">Zerado</a>          <!--cria abas de navegação com links que enviam para cada seção-->
-        </li>
-    </ul>
-    <!-- lista da shelf -->
-    <div id="shelf" class="row mt-3"></div>
+
+    <!-- abas -->
+<div class="d-flex align-items-center mt-4 mb-2">
+    <ul class="nav nav-tabs flex-grow-1" id="abas"></ul>
+    <button class="btn btn-outline-secondary btn-sm ms-3" onclick="abrirNovaLista()">+ Nova lista</button>
 </div>
 
+<!-- input nova lista (oculto) -->
+<div id="novaListaForm" class="input-group mb-3" style="display:none!important">
+    <input type="text" id="inputNovaLista" class="form-control" placeholder="Nome da lista...">
+    <button class="btn btn-success" onclick="criarLista()">Criar</button>
+    <button class="btn btn-secondary" onclick="fecharNovaLista()">Cancelar</button>
+</div>
+
+<!-- lista da shelf -->
+<div id="shelf" class="row mt-3"></div>
 
 <!-- pág de cada jogo -->
 <div class="modal fade" id="modalJogo" tabindex="-1">

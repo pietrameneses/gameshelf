@@ -2,7 +2,7 @@
 
 > Organize, avalie e descubra jogos em um só lugar.
 
-![CI](https://github.com/SEU_USUARIO/gameshelf/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/pietrameneses/gameshelf/actions/workflows/ci.yml/badge.svg)
 
 ---
 

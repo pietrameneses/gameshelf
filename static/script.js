@@ -22,6 +22,12 @@ function buscarJogo() {
         .then(data => mostrarResultados(data.results))
 }
 
+// limpar busca
+function limparBusca() {
+    document.getElementById("inputBusca").value = ""
+    document.getElementById("resultadosBusca").innerHTML = ""
+}
+
 // busca com enter
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("inputBusca").addEventListener("keypress", e => {
@@ -99,7 +105,7 @@ function salvarJogo() {
             game_id: jogoAtual.id,
             nome: jogoAtual.nome,
             status: status,
-            plataforma: jogoAtual.plataformas
+            plataforma: jogoAtual.plataformas,
             imagem: jogoAtual.imagem
         })
     })

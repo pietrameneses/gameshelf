@@ -100,6 +100,7 @@ function salvarJogo() {
             nome: jogoAtual.nome,
             status: status,
             plataforma: jogoAtual.plataformas
+            imagem: jogoAtual.imagem
         })
     })
     .then(res => res.json())

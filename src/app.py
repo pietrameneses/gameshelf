@@ -28,7 +28,7 @@ def listar_jogos():
 @app.route("/jogos", methods=["POST"])
 def add_jogo():
     dados = request.get_json()
-    resultado = add_game(dados["game_id"], dados["nome"], dados["status"], dados["plataforma"])
+    resultado = add_game(dados["game_id"], dados["nome"], dados["status"], dados["plataforma"],  dados.get("imagem", ""))
     return jsonify(resultado)
 
 # rota p atualizar jogos

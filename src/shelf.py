@@ -24,7 +24,7 @@ def _save(data): # precisa do (data) p/ salvar
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 # função pra add jogos
-def add_game(game_id, nome, status, plataforma):   # define os parâmetros a serem utilizados
+def add_game(game_id, nome, status, plataforma, imagem=""):   # define os parâmetros a serem utilizados
     data = _load()   # data = dicionário c informações
     for jogo in data["jogos"]:               # procura se tem um jogo já com o mesmo id
         if jogo["id"] == game_id:            
@@ -38,6 +38,7 @@ def add_game(game_id, nome, status, plataforma):   # define os parâmetros a ser
         "review": "",
         "horas": 0,
         "tags": [],
+        "imagem": imagem,
         "data_adicao": str(date.today())
     }    
     data["jogos"].append(novo_jogo)         # salva na lista

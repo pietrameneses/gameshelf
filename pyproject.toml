@@ -1,0 +1,4 @@
+[project]
+name = "gameshelf"
+version = "1.0.0"
+description = "Personal game backlog manager"

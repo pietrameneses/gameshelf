@@ -1,7 +1,7 @@
-/* ===== FONTE ===== */
+/* fonte */
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Inter:wght@300;400;500&display=swap');
 
-/* ===== GERAL ===== */
+/* geral */
 * {
     box-sizing: border-box;
 }
@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
 }
 
-/* ===== NAVBAR ===== */
+/* navbar */
 .navbar {
     background-color: #0d0d0f !important;
     border-bottom: 1px solid #1e1e2e;
@@ -32,12 +32,12 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
-/* ===== CONTAINER ===== */
+/* container */
 .container {
     padding-top: 32px !important;
 }
 
-/* ===== BUSCA ===== */
+/* busca */
 .input-group {
     background-color: #1a1a2e;
     border-radius: 12px;
@@ -91,7 +91,7 @@ body {
     color: #ffffff !important;
 }
 
-/* ===== CARDS DOS JOGOS ===== */
+/* cards */
 .game-card {
     background-color: #13131f;
     border-radius: 12px;
@@ -134,7 +134,7 @@ body {
     color: #6666aa;
 }
 
-/* ===== ABAS ===== */
+/* abas */
 .nav-tabs {
     border-bottom: 1px solid #1e1e2e;
     gap: 4px;
@@ -161,7 +161,7 @@ body {
     border-bottom: 2px solid #7c3aed !important;
 }
 
-/* ===== BOTÃO NOVA LISTA ===== */
+/* botao de criar lista */
 .btn-outline-secondary {
     border-color: #2a2a4a !important;
     color: #6666aa !important;
@@ -177,7 +177,7 @@ body {
     border-color: #7c3aed !important;
 }
 
-/* ===== MODAL ===== */
+/* modal */
 .modal-content {
     background-color: #13131f !important;
     border: 1px solid #1e1e2e !important;
@@ -225,7 +225,7 @@ textarea.form-control:focus {
     border-color: #7c3aed !important;
 }
 
-/* ===== BOTÕES DO MODAL ===== */
+/* botoes do modal */
 .btn-success {
     background: linear-gradient(135deg, #059669, #10b981) !important;
     border: none !important;
@@ -246,7 +246,7 @@ textarea.form-control:focus {
     opacity: 0.85;
 }
 
-/* ===== NOTA BADGE ===== */
+/* nota */
 .nota-badge {
     background: linear-gradient(135deg, #7c3aed, #a855f7);
     color: #ffffff;
@@ -257,7 +257,7 @@ textarea.form-control:focus {
     font-weight: 500;
 }
 
-/* ===== MENSAGEM VAZIA ===== */
+/* mensagem */
 .text-muted {
     color: #444466 !important;
     font-size: 0.9rem;

@@ -31,6 +31,24 @@ Jogadores casuais e entusiastas que querem manter um registro pessoal da sua jor
 
 ---
 
+## Imagens
+
+### Página inicial
+
+![Busca](docs/foto1.png)
+
+### Busca de jogos
+
+![Busca](docs/foto2.png)
+
+### Criando listas
+
+![Busca](docs/foto3.png)
+
+### Adicionando jogos
+
+![Busca](docs/foto4.png)
+
 ## Tecnologias
 
 | Camada | Tecnologia |

@@ -93,8 +93,8 @@ def add_list(nome):
     data = _load()
     if "listas" not in data:
         data["listas"] = []
-    for l in data["listas"]:
-        if l["nome"] == nome:
+    for lista in data["listas"]:
+        if lista["nome"] == nome:
             return {"erro": "Lista já existe"}
     data["listas"].append({"nome": nome})
     _save(data)
@@ -105,7 +105,7 @@ def get_lists():
     data = _load()
     fixas = ["quero_jogar", "jogando", "zerado"]
     personalizadas = data.get("listas", [])
-    return fixas + [l["nome"] for l in personalizadas]
+    return fixas + [lista["nome"] for lista in personalizadas]
 
 # apagar lista
 def remove_list(nome):
@@ -114,7 +114,7 @@ def remove_list(nome):
         return {"erro": "Não é possível remover listas fixas"}
     data = _load()
     antes = len(data.get("listas", []))
-    data["listas"] = [l for l in data.get("listas", []) if l["nome"] != nome]
+    data["listas"] = [lista for lista in data.get("listas", []) if lista["nome"] != nome]
     if len(data["listas"]) == antes:
         return {"erro": "Lista não encontrada"}
     _save(data)

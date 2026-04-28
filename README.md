@@ -6,6 +6,11 @@
 
 ---
 
+## Deploy
+[Acesse o Gameshelf aqui](https://gameshelf-lj8o.onrender.com/)
+
+--- 
+
 ## Sobre o Projeto
 
 GameShelf é uma aplicação web local que resolve um problema comum entre jogadores: a dificuldade de organizar e acompanhar os jogos que jogou, está jogando ou quer jogar. Inspirado em plataformas como Letterboxd e Fragrantica, o GameShelf permite criar listas personalizadas, avaliar jogos, escrever reviews e descobrir títulos similares — tudo integrado com a RAWG API.
@@ -30,11 +35,6 @@ Jogadores casuais e entusiastas que querem manter um registro pessoal da sua jor
 - Dados salvos localmente em JSON
 
 ---
-
-## Deploy
-[Acesse o Gameshelf aqui](https://gameshelf-lj8o.onrender.com/)
-
---- 
 
 ## Imagens
 

@@ -31,6 +31,11 @@ Jogadores casuais e entusiastas que querem manter um registro pessoal da sua jor
 
 ---
 
+## Deploy
+[Acesse o Gameshelf aqui](https://gameshelf-lj8o.onrender.com/)
+
+--- 
+
 ## Imagens
 
 ### Página inicial

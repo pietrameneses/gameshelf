@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 # importa o flask
 from flask import Flask, request, jsonify, render_template     
 # importa o arq. shelf.py
-from shelf import add_game, get_games, update_game, remove_game, add_list, get_lists, remove_list
+from src.shelf import add_game, get_games, update_game, remove_game, add_list, get_lists, remove_list
 
 load_dotenv()
 

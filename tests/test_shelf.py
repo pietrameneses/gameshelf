@@ -12,7 +12,7 @@ def mock_response(data):
     return mock
 
 # teste: add jogo > ok
-@patch("shelf.supabase")
+@patch("database.supabase")
 def test_adicionar_jogo(mock_sb):
     # simula que o jogo não existe ainda
     mock_sb.table.return_value.select.return_value.eq.return_value.execute.return_value = mock_response([])
@@ -22,7 +22,7 @@ def test_adicionar_jogo(mock_sb):
     assert resultado == {"ok": True}
 
 # teste: add jogo duplicado > erro
-@patch("shelf.supabase")
+@patch("database.supabase")
 def test_adicionar_jogo_duplicado(mock_sb):
     # simula que o jogo já existe
     mock_sb.table.return_value.select.return_value.eq.return_value.execute.return_value = mock_response([
@@ -33,7 +33,7 @@ def test_adicionar_jogo_duplicado(mock_sb):
     assert "erro" in resultado
 
 # testes: listar jogos
-@patch("shelf.supabase")
+@patch("database.supabase")
 def test_listar_jogos(mock_sb):
     mock_sb.table.return_value.select.return_value.execute.return_value = mock_response([
         {"rawg_id": 1, "name": "Hollow Knight", "status": "quero_jogar", "platforms": "PC"},
@@ -43,7 +43,7 @@ def test_listar_jogos(mock_sb):
     jogos = get_games()
     assert len(jogos) == 2
 
-@patch("shelf.supabase")
+@patch("database.supabase")
 def test_filtrar_por_status(mock_sb):
     mock_sb.table.return_value.select.return_value.execute.return_value = mock_response([
         {"rawg_id": 1, "name": "Hollow Knight", "status": "quero_jogar", "platforms": "PC"},
@@ -56,7 +56,7 @@ def test_filtrar_por_status(mock_sb):
 
 # testes: atualizar jogos
 # ok
-@patch("shelf.supabase")
+@patch("database.supabase")
 def test_atualizar_nota(mock_sb):
     # simula que o jogo existe
     mock_sb.table.return_value.select.return_value.eq.return_value.execute.return_value = mock_response([
@@ -68,19 +68,19 @@ def test_atualizar_nota(mock_sb):
     assert resultado == {"ok": True}
 
 # erro
-@patch("shelf.supabase")
+@patch("database.supabase")
 def test_nota_invalida(mock_sb):
     resultado = update_game(1, nota=6)
     assert "erro" in resultado
 
 # erro
-@patch("shelf.supabase")
+@patch("database.supabase")
 def test_nota_invalida_negativa(mock_sb):
     resultado = update_game(1, nota=-1)
     assert "erro" in resultado
 
 # teste: remover jogo > ok
-@patch("shelf.supabase")
+@patch("database.supabase")
 def test_remover_jogo(mock_sb):
     # simula que o jogo existe
     mock_sb.table.return_value.select.return_value.eq.return_value.execute.return_value = mock_response([
@@ -92,7 +92,7 @@ def test_remover_jogo(mock_sb):
     assert resultado == {"ok": True}
 
 # teste: remover jogo q n existe
-@patch("shelf.supabase")
+@patch("database.supabase")
 def test_remover_jogo_inexistente(mock_sb):
     # simula que o jogo não existe
     mock_sb.table.return_value.select.return_value.eq.return_value.execute.return_value = mock_response([])

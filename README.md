@@ -25,14 +25,14 @@ Jogadores casuais e entusiastas que querem manter um registro pessoal da sua jor
 
 ## Funcionalidades
 
-- Busca de jogos via RAWG API (com capa, plataformas e informações)
-- Listas personalizáveis ("Quero Jogar", "Jogando", "Zerado" + listas próprias)
-- Avaliação com nota de 1 a 5
-- Reviews pessoais por jogo
-- Registro de horas jogadas
-- Adição de um jogo em múltiplas listas simultaneamente
-- Remoção de jogos e listas personalizadas
-- Dados salvos localmente em JSON
+- Busca de jogos via RAWG API (com capa, plataformas e informações);
+- Listas personalizáveis ("Quero Jogar", "Jogando", "Zerado" + listas próprias);
+- Avaliação com nota de 1 a 5;
+- Reviews pessoais por jogo;
+- Registro de horas jogadas;
+- Adição de um jogo em múltiplas listas simultaneamente;
+- Remoção de jogos e listas personalizadas;
+- Dados salvos em Banco de Dados em nuvem (SupaBase).
 
 ---
 

@@ -150,7 +150,7 @@ ruff check src/
 
 ## Versão
 
-`1.0.0`
+`1.2.3`
 
 ---
 
@@ -161,6 +161,10 @@ MIT
 ## Autor
 
 Pietra Meneses
+
+## Colaboradores
+
+Isabella Santiago e Maria Luiza Neiva
 
 ## Repositório
 

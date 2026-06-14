@@ -1,33 +1,26 @@
 name: CI
-
 on:
   push:
     branches: [ master, main ]
   pull_request:
     branches: [ master, main ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Clonar repositório
         uses: actions/checkout@v3
-
       - name: Instalar Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
-
       - name: Instalar dependências
         run: pip install -r requirements.txt
-
       - name: Rodar linting (ruff)
         run: ruff check src/
-
       - name: Rodar testes (pytest)
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-          RAWG_KEY: ${{ secrets.RAWG_KEY }      
+          RAWG_KEY: ${{ secrets.RAWG_KEY }}
         run: python3 -m pytest tests/ -v

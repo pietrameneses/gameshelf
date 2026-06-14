@@ -26,4 +26,8 @@ jobs:
         run: ruff check src/
 
       - name: Rodar testes (pytest)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          RAWG_KEY: ${{ secrets.RAWG_KEY }      
         run: python3 -m pytest tests/ -v
